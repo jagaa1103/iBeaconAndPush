@@ -56,33 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         print("App is running in Background")
-        let uuidString = "01122334-4556-6778-899a-abbccddeeff0"
-        let beaconIdentifier = "ibeacon"
-        let beaconUUID:NSUUID = NSUUID(UUIDString: uuidString)!
-        let beaconRegion:CLBeaconRegion = CLBeaconRegion(proximityUUID: beaconUUID,
-            identifier: beaconIdentifier)
-        
-        locationManager = CLLocationManager()
-        if(locationManager!.respondsToSelector("requestAlwaysAuthorization")) {
-            locationManager!.requestAlwaysAuthorization()
-        }
-        
-        locationManager!.delegate = self
-        locationManager!.pausesLocationUpdatesAutomatically = false
-        
-        locationManager!.startMonitoringForRegion(beaconRegion)
-        locationManager!.startRangingBeaconsInRegion(beaconRegion)
-        locationManager!.startUpdatingLocation()
-        
-        if(application.respondsToSelector("registerUserNotificationSettings:")) {
-            application.registerUserNotificationSettings(
-                UIUserNotificationSettings(
-                    forTypes: [.Alert , .Sound],
-                    categories: nil
-                )
-            )
-        }
-
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -103,35 +76,10 @@ extension AppDelegate: CLLocationManagerDelegate {
     func sendLocalNotificationWithMessage(message: String!) {
         let notification:UILocalNotification = UILocalNotification()
         notification.alertBody = message
+        notification.soundName = "tos_beep.caf";
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
-//    func locationManager(manager: CLLocationManager!,
-//        didRangeBeacons beacons: [AnyObject],
-//        inRegion region: CLBeaconRegion!) {
-//            NSLog("didRangeBeacons");
-//            var message:String = ""
-//            
-//            if(beacons.count > 0) {
-//                let nearestBeacon:CLBeacon = beacons[0] as! CLBeacon
-//                
-//                switch nearestBeacon.proximity {
-//                case CLProximity.Far:
-//                    message = "You are far away from the beacon"
-//                case CLProximity.Near:
-//                    message = "You are near the beacon"
-//                case CLProximity.Immediate:
-//                    message = "You are in the immediate proximity of the beacon"
-//                case CLProximity.Unknown:
-//                    return
-//                }
-//            } else {
-//                message = "No beacons are nearby"
-//            }
-//            
-//            NSLog("%@", message)
-//            sendLocalNotificationWithMessage(message)
-//    }
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         var message:String
         if(beacons.count > 0){
@@ -150,6 +98,7 @@ extension AppDelegate: CLLocationManagerDelegate {
 //                }
                 if(nearestBeacon.rssi > -65 && nearestBeacon.rssi < 0){
                     message = "You are very close to iBeacon"
+                    sendToWidget("\(nearestBeacon.rssi)")
                     sendLocalNotificationWithMessage(message)
                 }
 
@@ -161,9 +110,18 @@ extension AppDelegate: CLLocationManagerDelegate {
     }
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("You are in iBeaconRegion")
+        let message = "You are in iBeaconRegion"
+        sendLocalNotificationWithMessage(message)
     }
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("You are exit from iBeaconRegion")
+        print("You exited from iBeaconRegion")
+        let message = "You exited from iBeaconRegion"
+        sendLocalNotificationWithMessage(message)
+    }
+    func sendToWidget(rssi: String){
+        let sharedDefaults = NSUserDefaults.init(suiteName: "group.beaconwidget")
+        sharedDefaults?.setObject(rssi, forKey: "widgetData")
+        sharedDefaults?.synchronize()
     }
 }
 

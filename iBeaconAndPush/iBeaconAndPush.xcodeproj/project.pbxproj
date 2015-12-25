@@ -12,6 +12,7 @@
 		11D5C2541C2D630300CFCC84 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D5C2521C2D630300CFCC84 /* MainInterface.storyboard */; };
 		11D5C2581C2D630300CFCC84 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11D5C24B1C2D630300CFCC84 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		11D5C25E1C2D691400CFCC84 /* laugh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11D5C25D1C2D691400CFCC84 /* laugh.jpg */; };
+		11D5C2601C2D6BE900CFCC84 /* tos_beep.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11D5C25F1C2D6BE900CFCC84 /* tos_beep.caf */; };
 		11E6D4121C2BF37C004C78D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E6D4111C2BF37C004C78D7 /* AppDelegate.swift */; };
 		11E6D4141C2BF37C004C78D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E6D4131C2BF37C004C78D7 /* ViewController.swift */; };
 		11E6D4171C2BF37C004C78D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E6D4151C2BF37C004C78D7 /* Main.storyboard */; };
@@ -66,6 +67,9 @@
 		11D5C2531C2D630300CFCC84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		11D5C2551C2D630300CFCC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11D5C25D1C2D691400CFCC84 /* laugh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = laugh.jpg; path = images/laugh.jpg; sourceTree = "<group>"; };
+		11D5C25F1C2D6BE900CFCC84 /* tos_beep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tos_beep.caf; sourceTree = "<group>"; };
+		11D5C2611C2D722B00CFCC84 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Widget.entitlements; sourceTree = "<group>"; };
+		11D5C2621C2D729700CFCC84 /* iBeaconAndPush.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iBeaconAndPush.entitlements; sourceTree = "<group>"; };
 		11E6D40E1C2BF37C004C78D7 /* iBeaconAndPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeaconAndPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E6D4111C2BF37C004C78D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11E6D4131C2BF37C004C78D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		11D5C24F1C2D630300CFCC84 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				11D5C2611C2D722B00CFCC84 /* Widget.entitlements */,
 				11D5C25D1C2D691400CFCC84 /* laugh.jpg */,
 				11D5C2501C2D630300CFCC84 /* TodayViewController.swift */,
 				11D5C2521C2D630300CFCC84 /* MainInterface.storyboard */,
@@ -159,6 +164,8 @@
 		11E6D4101C2BF37C004C78D7 /* iBeaconAndPush */ = {
 			isa = PBXGroup;
 			children = (
+				11D5C2621C2D729700CFCC84 /* iBeaconAndPush.entitlements */,
+				11D5C25F1C2D6BE900CFCC84 /* tos_beep.caf */,
 				11E6D4111C2BF37C004C78D7 /* AppDelegate.swift */,
 				11E6D4131C2BF37C004C78D7 /* ViewController.swift */,
 				11E6D4151C2BF37C004C78D7 /* Main.storyboard */,
@@ -274,10 +281,20 @@
 				TargetAttributes = {
 					11D5C24A1C2D630300CFCC84 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = J82E7D76Q3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					11E6D40D1C2BF37C004C78D7 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = J82E7D76Q3;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -329,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E6D41C1C2BF37C004C78D7 /* LaunchScreen.storyboard in Resources */,
+				11D5C2601C2D6BE900CFCC84 /* tos_beep.caf in Resources */,
 				11E6D4191C2BF37C004C78D7 /* Assets.xcassets in Resources */,
 				11E6D4171C2BF37C004C78D7 /* Main.storyboard in Resources */,
 			);
@@ -435,10 +453,14 @@
 		11D5C25A1C2D630300CFCC84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Widget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartmongol.iBeaconAndPush.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -446,10 +468,14 @@
 		11D5C25B1C2D630300CFCC84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Widget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartmongol.iBeaconAndPush.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -539,11 +565,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iBeaconAndPush/iBeaconAndPush.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = iBeaconAndPush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartmongol.iBeaconAndPush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -551,11 +581,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iBeaconAndPush/iBeaconAndPush.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = iBeaconAndPush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartmongol.iBeaconAndPush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
