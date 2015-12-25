@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>iBeaconAndPush.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>11D5C24A1C2D630300CFCC84</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>11E6D40D1C2BF37C004C78D7</key>
 		<dict>
 			<key>primary</key>
