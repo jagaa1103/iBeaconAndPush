@@ -193,6 +193,11 @@
 				TargetAttributes = {
 					11E6D40D1C2BF37C004C78D7 = {
 						CreatedOnToolsVersion = 7.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					11E6D4211C2BF37D004C78D7 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -482,6 +487,7 @@
 				11E6D4381C2BF37D004C78D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11E6D4391C2BF37D004C78D7 /* Build configuration list for PBXNativeTarget "iBeaconAndPushTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +496,7 @@
 				11E6D43B1C2BF37D004C78D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11E6D43C1C2BF37D004C78D7 /* Build configuration list for PBXNativeTarget "iBeaconAndPushUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +505,7 @@
 				11E6D43E1C2BF37D004C78D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
